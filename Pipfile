@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 black = "*"
+spacy = "*"
+nltk = "*"
 
 [dev-packages]
 
