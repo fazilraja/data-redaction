@@ -1,0 +1,20 @@
+--------------------names redacted--------------------
+[Martin Cuilla, William E Kasemervisz, Gary Taylor, Jeffrey C Gossett, Gary W Lamphier, Scott Earnest, Martin Cuilla, Tony Harris, Greg Martin, Mark Friedman, Michael W Morris, Trent Green, Mike Morris', Goss, Greg Martin, Gary Taylor  , Kimble Anders, Gary Taylor  O. Gasden  , Greg   D.  Mason  25, Gary L, R. Anderson  ]
+Number of names redacted: 21
+
+--------------------dates redacted--------------------
+['Dec2000', 27, 2000, 01:16:00]
+Number of dates redacted: 4
+
+--------------------phones redacted--------------------
+[]
+Number of phones redacted: 0
+
+--------------------gender terms redacted--------------------
+['he']
+Number of genders redacted: 1
+
+--------------------address redacted--------------------
+[]
+Number of addresses redacted: 0
+
