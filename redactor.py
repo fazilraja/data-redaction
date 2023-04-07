@@ -135,18 +135,15 @@ def output(data, args, file):
         output_path = args
     file = file.split("/")[-1]
     file = output_path + file
-    # regex to catch any file extensions
-    pattern = r"\.[a-zA-Z0-9]+$"
-    # if the file has an extension
-    if(re.search(pattern, file)):
-        # replace the extension with _redacted.txt
-        file = re.sub(pattern, ".redacted", file)
-    # write the data to the file
-    # create the file
+   
+    # add .redacted to the file
+    file = file + ".redacted"
 
+    # check if the directory exists
     if not os.path.exists(output_path):
         os.makedirs(output_path)
     
+    # write the data to the file
     with open(file, "w") as f:
         f.write(data)
 
