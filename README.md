@@ -6,6 +6,7 @@ Whenever sensitive information is shared with the public, the data must go throu
 
 In this project I am redacting any file given to me. The topics I will be redacting are names, addresses, dates, gender related pronouns and phone numbers. We use spacy, regexs and nltk to detect the data and then redact it.
 
+
 Below is the tree for my project:
 ├── COLLABORATORS
 ├── LICENSE
@@ -53,6 +54,7 @@ output: the output directory, in this case it is redacted/
 stats: the stats file, in this case it is stats.txt, it outputs the number of redactions, the number of tokens and the number of files redacted for each file
 
 # Demo
+ATTENTION: The demo is a video and not a gif. Please click on the link to see the demo if it does not automatically play. Thank you. Sorry for the inconvenience.
 ![alt-text](https://github.com/fazilraja/cs5293sp23-project1/blob/main/docs/project1demo.mp4)
 
 # Functions
