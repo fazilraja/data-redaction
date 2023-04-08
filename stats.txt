@@ -271,3 +271,45 @@ Number of genders redacted: 0
 ['10 fantasy\nX', '-0700']
 Number of addresses redacted: 2
 
+---------------------------Stats for docs/8.txt-----------------------------
+--------------------names redacted--------------------
+['Greg  Martin', 'Mark Friedman', 'Gary Lamphier', 'Scott Earnest', 'Tony  Harris', 'Jeff Gossett', 'Bill Kasemervisz', 'Martin Cuilla', 'Mike Morris', 'Gary Taylor', 'Gary']
+Number of names redacted: 11
+
+--------------------dates redacted--------------------
+['Dec2000', '2000', '12:28:00', '1968', 'the \nseason', 'each week', 'the year']
+Number of dates redacted: 7
+
+--------------------phones redacted--------------------
+['4558521']
+Number of phones redacted: 1
+
+--------------------gender terms redacted--------------------
+[]
+Number of genders redacted: 0
+
+--------------------address redacted--------------------
+['10 fantasy\nX', '-0700']
+Number of addresses redacted: 2
+
+---------------------------Stats for docs/8.txt-----------------------------
+--------------------names redacted--------------------
+['Greg  Martin', 'Mark Friedman', 'Gary Lamphier', 'Scott Earnest', 'Tony  Harris', 'Jeff Gossett', 'Bill Kasemervisz', 'Martin Cuilla', 'Mike Morris', 'Gary Taylor', 'Gary']
+Number of names redacted: 11
+
+--------------------dates redacted--------------------
+['Dec2000', '2000', '12:28:00', '1968', 'the \nseason', 'each week', 'the year']
+Number of dates redacted: 7
+
+--------------------phones redacted--------------------
+['4558521']
+Number of phones redacted: 1
+
+--------------------gender terms redacted--------------------
+[]
+Number of genders redacted: 0
+
+--------------------address redacted--------------------
+['10 fantasy\nX', '-0700']
+Number of addresses redacted: 2
+

@@ -42,7 +42,18 @@ To install grab the github link and git clone it.
 # How to run
 Then run the command ```pipenv run python redactor.py --input 'docs/*.txt' --input 'docs/*.md'  --names --dates --phones --genders --address --output 'redacted/' --stats stats.txt``` and in order to run the tests you can use the command ```pipenv run python -m pytest```.
 
-![alt-text](https://github.com/fazilraja/cs5293sp23-project1/docs/project1vid.mp4)
+Each argument parser is as follows:
+input: which globs of files you want to redact, if the glob is not found then it will say no files for this glob
+names: enter this arg if you want to redact names
+dates: enter this arg if you want to redact dates such as 4/9/2023, April 9th, 22/2/22, etc.
+genders: redacts words that describe gender
+phones: redacts phone numbers
+address: redacts addresses
+output: the output directory, in this case it is redacted/
+stats: the stats file, in this case it is stats.txt
+
+# Demo
+![alt-text](https://github.com/fazilraja/cs5293sp23-project1/docs/project1demo.mp4)
 
 # Functions
 Each function serves a different function. Since there are 5 different types of data to redact and othe auxilary function, I have 5 different redaction functions. For all redaction functions we return 3 variables, the redacted data, the number of redactions and the number of tokens. The functions are as follows:
