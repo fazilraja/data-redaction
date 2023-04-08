@@ -33,7 +33,7 @@ def redact_names(data):
             # redact the word
             data = data.replace(ent.text, redact_word(ent.text))
             # add the name to the list of names
-            names.append(ent)
+            names.append(ent.text)
             # increment count
             count += 1
     # return the data, names and count
@@ -50,9 +50,9 @@ def redact_dates(data):
     # lets first do a regex to find dates then clean up with spacy
     pattern = r"\b(?:\d{1,2}[/-]\d{1,2}[/-]\d{2,4}|\d{1,2}[/-]\d{2}|\d{1,2}\s(?:JAN|NOV|OCT|DEC|jan|nov|oct|dec)\s\d{2,4}|[0-9]+(?:st|[nr]d|th)?\s(?:JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\w*(?:\s|,)\s?\d{2,4}|\d{1,2}-[ADFJMNOS]\w*-\d{2,4}|\d{1,2}/\d{1,2})\b"
     #regex for Dec2000
-    pattern = r"\\[A-Za-z_]+_([A-Za-z]+[0-9]{4})\\"
+    pattern1 = r"\\[A-Za-z_]+_([A-Za-z]+[0-9]{4})\\"
 
-    matches1 = re.findall(pattern, data)
+    matches1 = re.findall(pattern1, data)
     for match in matches1:
         data = data.replace(match, redact_word(match))
         dates.append(match)
@@ -72,7 +72,7 @@ def redact_dates(data):
             # redact the word
             data = data.replace(ent.text, redact_word(ent.text))
             # add the name to the list of names
-            dates.append(ent)
+            dates.append(ent.text)
             # increment count
             count += 1
     
@@ -112,16 +112,35 @@ def redact_genders(data):
 def redact_address(data):
     address_redacted = []
     count = 0
+    nlp = spacy.load("en_core_web_lg")
 
-    nlp = spacy.load("en_core_web_sm")
+    address_regex = r"\d+\s+\w+\s+\w+\s*\w*"
+    match = re.findall(address_regex, data)
+
+    for m in match:
+        data = re.sub(r"\b" + m + r"\b", redact_word(m), data)
+        address_redacted.append(m)
+        count += 1
+
     doc = nlp(data)
+    with doc.retokenize() as retokenizer:
+        for ent in doc.ents:
+            retokenizer.merge(ent)
+            if(ent.label_ == "GPE" or ent.label_ == "LOC" or ent.label_ == "FAC"):
+                data = data.replace(ent.text, redact_word(ent.text))
+                address_redacted.append(ent.text)
+                count += 1
+
+    return data, address_redacted, count
+
+
     for ent in doc.ents:
         # if the entity is a date
         if(ent.label_ == "GPE" or ent.label_ == "LOC" or ent.label_ == "FAC"):
             # redact the word
             data = data.replace(ent.text, redact_word(ent.text))
             # add the name to the list of names
-            address_redacted.append(ent)
+            address_redacted.append(ent.text)
             # increment count
             count += 1
     
@@ -150,12 +169,13 @@ def output(data, args, file):
 
 
 # redact the file based on the arguments
-def redaction(args, data):
+def redaction(args, data, filename):
     # if args has names
 
     # open stat file
     stats = args.stats
-    f = open(stats, "w")
+    f = open(stats, "a")
+    f.write(f"---------------------------Stats for {filename}-----------------------------\n")
 
 
     if(args.names):
@@ -199,7 +219,6 @@ def redaction(args, data):
         f.write(f"Number of addresses redacted: {str(count)}\n\n")
 
     # close the file
-    f.close()
     return data
 
 
@@ -254,7 +273,7 @@ if __name__ == "__main__":
                         data = f.read()
                         # redact the file based on the arguments
                         print("Redacting file", file)
-                        data = redaction(args, data)
+                        data = redaction(args, data, file)
                         print("Redaction complete\n")
                         # if output is given
                         if(args.output):

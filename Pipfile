@@ -8,6 +8,7 @@ black = "*"
 spacy = "*"
 nltk = "*"
 datefinder = "*"
+pytest = "*"
 
 [dev-packages]
 
