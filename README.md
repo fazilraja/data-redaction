@@ -50,7 +50,7 @@ genders: redacts words that describe gender
 phones: redacts phone numbers
 address: redacts addresses
 output: the output directory, in this case it is redacted/
-stats: the stats file, in this case it is stats.txt
+stats: the stats file, in this case it is stats.txt, it outputs the number of redactions, the number of tokens and the number of files redacted for each file
 
 # Demo
 ![alt-text](https://github.com/fazilraja/cs5293sp23-project1/docs/project1demo.mp4)
