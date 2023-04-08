@@ -133,19 +133,6 @@ def redact_address(data):
 
     return data, address_redacted, count
 
-
-    for ent in doc.ents:
-        # if the entity is a date
-        if(ent.label_ == "GPE" or ent.label_ == "LOC" or ent.label_ == "FAC"):
-            # redact the word
-            data = data.replace(ent.text, redact_word(ent.text))
-            # add the name to the list of names
-            address_redacted.append(ent.text)
-            # increment count
-            count += 1
-    
-    return data, address_redacted, count
-
 # given data anda directory output the data to the directory in a file
 def output(data, args, file):
     if args is None:
@@ -171,7 +158,7 @@ def output(data, args, file):
 # redact the file based on the arguments
 def redaction(args, data, filename):
     # if args has names
-
+    
     # open stat file
     stats = args.stats
     f = open(stats, "a")
