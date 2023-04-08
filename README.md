@@ -53,7 +53,7 @@ output: the output directory, in this case it is redacted/
 stats: the stats file, in this case it is stats.txt, it outputs the number of redactions, the number of tokens and the number of files redacted for each file
 
 # Demo
-![alt-text](https://github.com/fazilraja/cs5293sp23-project1/docs/project1demo.mp4)
+![alt-text](https://github.com/fazilraja/cs5293sp23-project1/blob/main/docs/project1demo.mp4)
 
 # Functions
 Each function serves a different function. Since there are 5 different types of data to redact and othe auxilary function, I have 5 different redaction functions. For all redaction functions we return 3 variables, the redacted data, the number of redactions and the number of tokens. The functions are as follows:
